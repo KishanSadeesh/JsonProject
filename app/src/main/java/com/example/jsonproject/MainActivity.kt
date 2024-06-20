@@ -26,11 +26,9 @@ class MainActivity : AppCompatActivity() {
     }
     private fun getMarsPhotos() {
         GlobalScope.launch {
-            var listMarsPhotos =   MarsApi.retrofitService.getPhotos()
-            //var tvHome: TextView = findViewById(R.id.tvHome)
-            //tvHome.setText(listMarsPhotos.get(1).imgSrc)
-            Log.i("homeactiviy",listMarsPhotos.size.toString())
-            Log.i("homeactivity-url",listMarsPhotos.get(1).imgSrc)
+            var jsonString =   MarsApi.retrofitService.getPhotos()
+            Log.i("Main Activity", jsonString)
+
 
         }
     }
