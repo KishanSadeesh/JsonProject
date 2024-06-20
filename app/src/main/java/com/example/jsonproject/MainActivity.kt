@@ -44,7 +44,6 @@ class MainActivity : AppCompatActivity() {
         GlobalScope.launch (Dispatchers.Main){
             var listMarsPhotos =   MarsApi.retrofitService.getPhotos()
             marsAdapter.listMarsPhotos = listMarsPhotos
-            imageView.load(listMarsPhotos.get(0).imgSrc)
 
             marsAdapter.notifyDataSetChanged()
 
