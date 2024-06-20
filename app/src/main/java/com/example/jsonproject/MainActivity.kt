@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             /*var tvHome : TextView = findViewById(R.id.tvHome)
             tvHome.setText(listMarsPhotos.get(0).imgSrc)*/
             Log.i("Main Activity", listMarsPhotos.size.toString())
-
+            Log.i("Main Activity", listMarsPhotos.get(0).imgSrc)
         }
     }
 
