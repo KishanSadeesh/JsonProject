@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.jsonproject.databinding.ActivityMainBinding
 import com.example.jsonproject.network.MarsApi
 import com.example.jsonproject.network.MarsPhoto
 import kotlinx.coroutines.Dispatchers
@@ -20,20 +21,25 @@ import java.util.ArrayList
 
 class MainActivity : AppCompatActivity() {
     var TAG = MainActivity::class.java.simpleName
-    lateinit var MarsRecyclerView: RecyclerView
+    private lateinit var binding: ActivityMainBinding
+
+    //lateinit var MarsRecyclerView: RecyclerView
     lateinit var marsAdapter: MarsAdapter
     lateinit var Photos: List<MarsPhoto>
-    lateinit var imageView: ImageView
+    //lateinit var imageView: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        imageView = findViewById(R.id.imageView)
-        MarsRecyclerView = findViewById(R.id.RecyclerView)
-        MarsRecyclerView.layoutManager = LinearLayoutManager(this)
+        //setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        //imageView = findViewById(R.id.imageView)
+        //MarsRecyclerView = findViewById(R.id.RecyclerView)
+        binding.RecyclerView.layoutManager = LinearLayoutManager(this)
         Photos = ArrayList()
         marsAdapter = MarsAdapter(Photos)
-        MarsRecyclerView.adapter = marsAdapter
+        binding.RecyclerView.adapter = marsAdapter
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
